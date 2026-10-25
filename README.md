@@ -1,8 +1,7 @@
 # Big Data Analytics Summative Assessment
 
 Code, original and processed data, and saved outputs for an analysis of the 2024 UK Department
-for Transport (DfT) STATS19 casualty dataset. The Word document is maintained
-separately; this repository does not build documents or submission archives.
+for Transport (DfT) STATS19 casualty dataset. 
 
 The analysis covers severity associations (investigation A), age and road-user
 groups (B), predictive modelling (C), and a normalised SQLite database with SQL
