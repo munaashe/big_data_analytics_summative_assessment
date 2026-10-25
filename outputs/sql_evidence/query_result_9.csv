@@ -1,0 +1,11 @@
+severity_label,age_of_casualty,sex_label,ped_location_label,ped_movement_label
+Fatal,94,Female,"In carriageway, crossing elsewhere",Crossing from driver's nearside
+Fatal,93,Male,"In carriageway, crossing elsewhere",Crossing from driver's offside
+Fatal,92,Male,Crossing elsewhere within 50m. of pedestrian crossing,Crossing from driver's nearside
+Fatal,92,Female,"In carriageway, crossing elsewhere",Crossing from driver's nearside
+Fatal,91,Male,"In carriageway, crossing elsewhere",Crossing from driver's offside
+Fatal,91,Male,Crossing elsewhere within 50m. of pedestrian crossing,Crossing from driver's offside
+Fatal,91,Male,"In carriageway, crossing elsewhere",Crossing from driver's nearside
+Fatal,88,Female,"In carriageway, crossing elsewhere",Unknown or other
+Fatal,87,Male,"In carriageway, crossing elsewhere",Crossing from driver's nearside
+Fatal,87,Female,"In carriageway, crossing elsewhere",Crossing from offside - masked by  parked or stationary vehicle

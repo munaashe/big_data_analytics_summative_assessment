@@ -1,0 +1,14 @@
+{
+  "file": "dft-road-casualty-statistics-casualty-2024.csv",
+  "source": "UK Department for Transport, Road Safety Data (STATS19), casualty table 2024",
+  "licence": "Open Government Licence v3.0",
+  "sha256": "4a5f364306bf322491f9b4996df3891021424aee3a766283870f5f994431cc06",
+  "rows": 128272,
+  "columns": 23,
+  "duplicate_rows_full": 0,
+  "duplicate_keys_collision_casualty": 0,
+  "distinct_collisions": 100927,
+  "collision_years": [
+    2024
+  ]
+}

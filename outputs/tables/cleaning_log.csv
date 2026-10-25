@@ -1,0 +1,18 @@
+step,field,rows_affected,rule
+key check,collision_index+casualty_reference,0,Composite key unique; no rows removed
+sentinel to missing,sex_of_casualty,1412,-1 = 'Data missing or out of range' (guide)
+sentinel to missing,age_of_casualty,2552,-1 = 'Data missing or out of range' (guide)
+sentinel to missing,age_band_of_casualty,2552,-1 = 'Data missing or out of range' (guide)
+sentinel to missing,pedestrian_location,6,-1 = 'Data missing or out of range' (guide)
+sentinel to missing,pedestrian_movement,7,-1 = 'Data missing or out of range' (guide)
+sentinel to missing,car_passenger,190,-1 = 'Data missing or out of range' (guide)
+sentinel to missing,bus_or_coach_passenger,51,-1 = 'Data missing or out of range' (guide)
+sentinel to missing,pedestrian_road_maintenance_worker,11233,-1 = 'Data missing or out of range' (guide)
+sentinel to missing,casualty_type,1120,-1 = 'Data missing or out of range' (guide)
+sentinel to missing,casualty_imd_decile,17275,-1 = 'Data missing or out of range' (guide)
+sentinel to missing,enhanced_casualty_severity,26789,-1 = 'Data missing or out of range' (guide)
+sentinel to missing,casualty_distance_banding,17275,-1 = 'Data missing or out of range' (guide)
+consistency,pedestrian_location/movement,8,Pedestrian fields set to missing for non-pedestrian casualties with pedestrian codes
+drop field,lsoa_of_casualty,128272,High-cardinality small-area code; not needed for analysis; privacy minimisation
+derive,casualties_in_collision,128272,Count of casualty records sharing collision_index
+derive,max_vehicle_ref_in_collision,128272,Highest vehicle_reference among casualties in collision (lower bound on vehicles)

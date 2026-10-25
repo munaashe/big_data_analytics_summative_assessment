@@ -1,0 +1,11 @@
+field,reason_excluded
+"collision_index, collision_ref_no, casualty_reference",identifiers
+vehicle_reference,identifier within collision
+collision_year,constant (2024)
+enhanced_casualty_severity,derived from outcome (leakage)
+casualty_adjusted_severity_serious/slight,model-based adjustment of outcome (leakage)
+casualty_injury_based,recording mechanism linked to severity classification; sensitivity only
+age_band_of_casualty,redundant with continuous age
+pedestrian_road_maintenance_worker,"near-constant, 8.8% missing"
+lsoa_of_casualty,dropped in cleaning (quasi-identifier)
+casualty_type (raw),represented via road_user_group to avoid sparse levels

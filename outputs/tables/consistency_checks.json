@@ -1,0 +1,9 @@
+{
+  "age_min": 0,
+  "age_max": 99,
+  "age_band_mismatch": 0,
+  "pedestrian_class_vs_type_mismatch": 0,
+  "ped_location_nonzero_for_non_ped": 8,
+  "enhanced_severity_missing_pct": 20.88,
+  "injury_based_pct": 79.12
+}

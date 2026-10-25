@@ -1,0 +1,37 @@
+{
+  "severity_counts": {
+    "Fatal": 1602,
+    "Serious": 26040,
+    "Slight": 100630
+  },
+  "A_selected": [
+    "casualty_type (road-user group)",
+    "age_band_of_casualty",
+    "sex_of_casualty"
+  ],
+  "prevalence_ksi": 0.21549519770487713,
+  "prevalence_fatal": 0.012489085692902581,
+  "split": {
+    "train_n": 102617,
+    "test_n": 25655,
+    "train_ksi": 0.21549061071752243,
+    "test_ksi": 0.21551354511791074,
+    "shared_collisions": 0
+  },
+  "best_model": "Logistic regression",
+  "C_additional": [
+    "casualties_in_collision",
+    "pedestrian_movement",
+    "casualty_class"
+  ],
+  "three_class_recall": {
+    "Fatal": 0.595,
+    "Serious": 0.36,
+    "Slight": 0.544
+  },
+  "three_class_balanced_accuracy": 0.4995852202986577,
+  "adjusted_vs_recorded": {
+    "recorded_ksi_rate": 0.21549519770487713,
+    "adjusted_ksi_rate": 0.22972102009791692
+  }
+}

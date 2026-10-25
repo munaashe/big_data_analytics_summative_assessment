@@ -1,0 +1,92 @@
+Database: SQLite 3.53.4 (casualty_2024.sqlite)
+Loaded rows: {'collision': 100927, 'casualty': 128272, 'pedestrian_detail': 19176, 'severity': 3, 'casualty_type': 30}
+PRAGMA foreign_key_check violations: 0
+
+>>> DELETE FROM pedestrian_detail WHERE collision_index = '2024TEST000001'; ...
+OK, rows affected: 0
+
+>>> DELETE FROM casualty WHERE collision_index = '2024TEST000001'; ...
+OK, rows affected: 0
+
+>>> DELETE FROM collision WHERE collision_index = '2024TEST000001'; ...
+OK, rows affected: 0
+
+>>> BEGIN TRANSACTION; ...
+OK, rows affected: -1
+
+>>> INSERT INTO collision (collision_index, collision_year, collision_ref_no) VALUES ('2024TES ...
+OK, rows affected: 1
+
+>>> INSERT INTO casualty (collision_index, casualty_reference, vehicle_reference, casualty_cla ...
+OK, rows affected: 1
+
+>>> INSERT INTO pedestrian_detail (collision_index, casualty_reference, ped_location_code, ped ...
+OK, rows affected: 1
+
+>>> COMMIT; ...
+OK, rows affected: -1
+
+>>> SELECT c.collision_index, c.casualty_reference, cc.class_label, sx.sex_label, c.age_of_cas ...
+collision_index  casualty_reference class_label sex_label  age_of_casualty severity_label                 ped_location_label
+ 2024TEST000001                   1  Pedestrian    Female               82        Serious In carriageway, crossing elsewhere
+(1 row(s))
+
+>>> SELECT s.severity_label, c.age_of_casualty, sx.sex_label, pl.ped_location_label, pm.ped_mo ...
+severity_label  age_of_casualty sex_label                                    ped_location_label                                              ped_movement_label
+         Fatal               94    Female                    In carriageway, crossing elsewhere                                 Crossing from driver's nearside
+         Fatal               93      Male                    In carriageway, crossing elsewhere                                  Crossing from driver's offside
+         Fatal               92      Male Crossing elsewhere within 50m. of pedestrian crossing                                 Crossing from driver's nearside
+         Fatal               92    Female                    In carriageway, crossing elsewhere                                 Crossing from driver's nearside
+         Fatal               91      Male                    In carriageway, crossing elsewhere                                  Crossing from driver's offside
+         Fatal               91      Male Crossing elsewhere within 50m. of pedestrian crossing                                  Crossing from driver's offside
+         Fatal               91      Male                    In carriageway, crossing elsewhere                                 Crossing from driver's nearside
+         Fatal               88    Female                    In carriageway, crossing elsewhere                                                Unknown or other
+         Fatal               87      Male                    In carriageway, crossing elsewhere                                 Crossing from driver's nearside
+         Fatal               87    Female                    In carriageway, crossing elsewhere Crossing from offside - masked by  parked or stationary vehicle
+(10 row(s))
+
+>>> SELECT COUNT(*) AS matching_casualties FROM casualty c JOIN pedestrian_detail pd ON pd.col ...
+ matching_casualties
+                 538
+(1 row(s))
+
+>>> SELECT COALESCE(ct.casualty_type_label, 'Missing') AS casualty_type, SUM(CASE WHEN c.sever ...
+                                            casualty_type  fatal  serious  slight  total
+                                             Car occupant    682    10012   57684  68378
+                                               Pedestrian    409     5506   13262  19177
+                                                  Cyclist     82     3576   10891  14549
+            Motorcycle 125cc and under rider or passenger     58     1884    6353   8295
+                 Motorcycle over 500cc rider or passenger    223     2079    2108   4410
+   Van / Goods vehicle (3.5 tonnes mgw or under) occupant     32      520    2933   3485
+            Bus or coach occupant (17 or more pass seats)      3      308    1923   2234
+Motorcycle over 125cc and up to 500cc rider or  passenger     41      647    1112   1800
+                           Taxi/Private hire car occupant     10      174    1306   1490
+                                                  Missing      5      349     766   1120
+             Motorcycle 50cc and under rider or passenger      3      206     553    762
+                                   Other vehicle occupant      7      155     373    535
+         Goods vehicle (7.5 tonnes mgw and over) occupant     14       83     308    405
+                   Electric motorcycle rider or passenger      7      156     194    357
+               Motorcycle - unknown cc rider or passenger      8      180     148    336
+                                   Mobility scooter rider     12       65     193    270
+                Minibus (8 - 16 passenger seats) occupant      0       30     191    221
+      Goods vehicle (over 3.5t. and under 7.5t.) occupant      3       35     155    193
+                  Goods vehicle (unknown weight) occupant      0       22      74     96
+                                              Horse rider      0       25      45     70
+                            Agricultural vehicle occupant      3       24      43     70
+                     Unknown vehicle type (self rep only)      0        4      11     15
+                                            Tram occupant      0        1       4      5
+(23 row(s))
+
+Integrity tests:
+[REJECTED as expected] invalid severity code (4): IntegrityError: FOREIGN KEY constraint failed
+[REJECTED as expected] unknown collision (FK): IntegrityError: FOREIGN KEY constraint failed
+[REJECTED as expected] duplicate primary key: IntegrityError: UNIQUE constraint failed: casualty.collision_index, casualty.casualty_reference
+[REJECTED as expected] pedestrian detail on a driver: IntegrityError: pedestrian_detail requires a pedestrian casualty (class 3)
+[REJECTED as expected] age out of range (150): IntegrityError: CHECK constraint failed: age_of_casualty BETWEEN 0 AND 120
+
+Query plans:
+(b) filter: SEARCH c USING INDEX idx_casualty_class (casualty_class_code=? AND severity_code=?) | SEARCH pd USING INDEX sqlite_autoindex_pedestrian_detail_1 (collision_index=? AND casualty_reference=?)
+(c) aggregate: SCAN casualty USING COVERING INDEX idx_casualty_severity_type
+
+Repeatable on second run: True
+Cross-check: {'sql_total': 128273, 'expected_total_incl_test_row': 128273, 'sql_fatal': 1602, 'pandas_fatal': 1602, 'sql_serious': 26041, 'pandas_serious_plus_test': 26041}

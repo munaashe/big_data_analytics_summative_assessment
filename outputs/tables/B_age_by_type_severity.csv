@@ -1,0 +1,19 @@
+road_user_group,severity_label,n,median,q1,q3,mean
+Bus/minibus/tram occupant,Fatal,3,69.0,53.0,73.5,61.333333333333336
+Bus/minibus/tram occupant,Serious,318,56.0,27.0,71.75,50.62264150943396
+Bus/minibus/tram occupant,Slight,1938,49.0,28.0,63.0,46.04798761609907
+Car/taxi occupant,Fatal,692,42.0,26.0,68.0,46.8150289017341
+Car/taxi occupant,Serious,10123,38.0,23.0,58.0,41.88728637755606
+Car/taxi occupant,Slight,57920,36.0,24.0,52.0,39.14949930939227
+Cyclist,Fatal,82,55.5,35.25,67.75,51.31707317073171
+Cyclist,Serious,3527,39.0,26.0,54.0,40.21094414516586
+Cyclist,Slight,10478,33.0,22.0,47.0,34.801202519564804
+Goods/agricultural occupant,Fatal,52,50.0,34.75,56.25,46.46153846153846
+Goods/agricultural occupant,Serious,682,42.0,30.0,55.0,42.618768328445746
+Goods/agricultural occupant,Slight,3477,40.0,30.0,53.0,41.44089732528042
+Motorcyclist,Fatal,340,37.0,27.0,55.0,40.40882352941176
+Motorcyclist,Serious,5117,33.0,22.0,51.0,36.79773304670705
+Motorcyclist,Slight,10338,30.0,22.0,40.0,32.99564712710389
+Pedestrian,Fatal,409,57.0,38.0,76.0,55.69437652811736
+Pedestrian,Serious,5453,39.0,17.0,62.0,41.01907207041995
+Pedestrian,Slight,12836,31.0,15.0,51.0,34.6421782486756

@@ -1,0 +1,24 @@
+casualty_type,fatal,serious,slight,total
+Car occupant,682,10012,57684,68378
+Pedestrian,409,5506,13262,19177
+Cyclist,82,3576,10891,14549
+Motorcycle 125cc and under rider or passenger,58,1884,6353,8295
+Motorcycle over 500cc rider or passenger,223,2079,2108,4410
+Van / Goods vehicle (3.5 tonnes mgw or under) occupant,32,520,2933,3485
+Bus or coach occupant (17 or more pass seats),3,308,1923,2234
+Motorcycle over 125cc and up to 500cc rider or  passenger,41,647,1112,1800
+Taxi/Private hire car occupant,10,174,1306,1490
+Missing,5,349,766,1120
+Motorcycle 50cc and under rider or passenger,3,206,553,762
+Other vehicle occupant,7,155,373,535
+Goods vehicle (7.5 tonnes mgw and over) occupant,14,83,308,405
+Electric motorcycle rider or passenger,7,156,194,357
+Motorcycle - unknown cc rider or passenger,8,180,148,336
+Mobility scooter rider,12,65,193,270
+Minibus (8 - 16 passenger seats) occupant,0,30,191,221
+Goods vehicle (over 3.5t. and under 7.5t.) occupant,3,35,155,193
+Goods vehicle (unknown weight) occupant,0,22,74,96
+Horse rider,0,25,45,70
+Agricultural vehicle occupant,3,24,43,70
+Unknown vehicle type (self rep only),0,4,11,15
+Tram occupant,0,1,4,5
